@@ -9,67 +9,172 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Law of Attraction Quotes",
-    "description": "A curated collection of Law of Attraction quotes from Neville Goddard, Buddha, Gandhi, Wattles, and more.",
+    "description": "A curated collection of Law of Attraction quotes from historical and modern thinkers.",
     "url": "https://www.lawofattractioncentral.net/law-of-attraction-quotes/",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Law of Attraction Central"
-    }
+    "publisher": { "@type": "Organization", "name": "Law of Attraction Central" }
   }
   </script>
-
+  
   <style>
-    /* RESET & BASE (Locked) */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Lato', sans-serif; background: #f9f6f0; color: #1a1a1a; line-height: 1.8; }
-    
-    /* THE FULL-WIDTH HEADER (Locked) */
-    header { background: #000; width: 100%; }
-    header img { width: 100%; height: auto; display: block; margin: 0 auto; }
-    
-    /* THE NAV BAR (Locked) */
-    nav { background: #0f0f0f; padding: 15px; text-align: center; border-bottom: 1px solid #d4af7a; position: sticky; top: 0; z-index: 1000; }
-    nav a { color: #d4af7a; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 15px; font-weight: 400; }
-    nav a:hover, nav a.active { color: #fff; }
 
-    /* CONTENT CONTAINER */
-    .container { max-width: 850px; margin: 0 auto; padding: 60px 20px; }
-    
-    .hero-intro { text-align: center; margin-bottom: 60px; }
-    .hero-intro h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin-bottom: 20px; font-weight: 400; color: #000; }
-    .hero-intro h3 { font-size: 1.1rem; font-style: italic; color: #666; font-weight: 400; }
-
-    .author-section { margin-bottom: 80px; }
-    .author-label { font-size: 0.75rem; letter-spacing: 0.2em; color: #8c6f4e; text-transform: uppercase; display: block; text-align: center; margin-bottom: 5px; }
-    .author-name { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: #1a1a1a; text-align: center; margin-bottom: 30px; }
-    
-    .quote-item { 
-      font-family: 'Cormorant Garamond', serif; 
-      font-size: 1.6rem; 
-      font-style: italic; 
-      background: #fff; 
-      padding: 38px 40px; 
-      border-left: 6px solid #d4af7a; 
-      margin-bottom: 28px; 
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
-      position: relative;
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f9f6f0;
+      color: #333;
+      line-height: 1.85;
     }
-    .quote-item cite { display: block; margin-top: 18px; font-size: 1rem; color: #8c6f4e; font-family: 'Lato', sans-serif; font-style: normal; }
 
-    footer { background: #0f0f0f; color: #d4af7a; text-align: center; padding: 80px 20px; font-size: 0.8rem; margin-top: 100px; }
+    /* THE FULL-WIDTH HEADER (Fixed to touch edges) */
+    header { background: #000; width: 100%; }
+    header img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+
+    nav {
+      background: #0f0f0f;
+      padding: 18px 20px;
+      text-align: center;
+      border-bottom: 1px solid #d4af7a;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #d4af7a;
+      text-decoration: none;
+      font-size: 0.83rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin: 0 15px;
+    }
+
+    nav a:hover, nav a.active {
+      color: #ffffff;
+      border-bottom: 2px solid #d4af7a;
+    }
+
+    .page-intro {
+      max-width: 760px;
+      margin: 50px auto 40px;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    .page-intro h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem; /* Restored size */
+      color: #1a1a1a;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    .page-intro p.lead {
+      font-size: 1.15rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    .author-section { margin: 80px 0; }
+
+    .author-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .author-photo-placeholder {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #d4af7a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      background: #f0e9d9;
+      font-size: 2.6rem;
+    }
+
+    .author-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      color: #1a1a1a;
+      margin-bottom: 5px;
+    }
+
+    .author-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: #8c6f4e;
+      text-transform: uppercase;
+    }
+
+    .quote {
+      position: relative;
+      background: #ffffff;
+      padding: 38px 40px 32px 68px;
+      margin: 28px 0;
+      border-left: 6px solid #d4af7a;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+      border-radius: 3px;
+    }
+
+    .quote::before {
+      content: '“';
+      position: absolute;
+      left: 32px;
+      top: 22px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4.8rem;
+      color: #d4af7a;
+      opacity: 0.75;
+    }
+
+    .quote p {
+      font-size: 1.15rem;
+      line-height: 1.75;
+      color: #222;
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 18px;
+      font-size: 1rem;
+      color: #8c6f4e;
+      font-family: 'Lato', sans-serif;
+    }
+
+    footer {
+      background: #0f0f0f;
+      color: #d4af7a;
+      text-align: center;
+      padding: 80px 20px;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
   </style>
 </head>
 <body>
 
   <header>
-    <a href="/"><img src="../LAW of Attraction Header.webp" alt="Law of Attraction Central Logo"></a>
+    <a href="/"><img src="../LAW of Attraction Header.webp" alt="Law of Attraction Central" /></a>
   </header>
 
   <nav>
@@ -81,42 +186,74 @@
     <a href="/contact/">Contact</a>
   </nav>
 
-  <div class="container">
-    <div class="hero-intro">
-      <h1>Law of Attraction Quotes</h1>
-      <h3>From past historical figures to present day philosophers, the Law of Attraction has been revealing itself throughout history.</h3>
-    </div>
-
-    <section class="author-section">
-      <span class="author-label">MYSTIC & LAW OF ASSUMPTION TEACHER</span>
-      <h2 class="author-name">Neville Goddard</h2>
-      <div class="quote-item">“Assume the feeling of your wish fulfilled and observe the route that your attention follows.”<cite>— Neville Goddard</cite></div>
-      <div class="quote-item">“A change of feeling is a change of destiny.”<cite>— Neville Goddard</cite></div>
-      <div class="quote-item">“Imagination is the only reality. All things exist in imagination before they exist in reality.”<cite>— Neville Goddard</cite></div>
-    </section>
-
-    <section class="author-section">
-      <span class="author-label">ANCIENT WISDOM</span>
-      <h2 class="author-name">Buddha</h2>
-      <div class="quote-item">“What we are today comes from our thoughts of yesterday, and our present thoughts build our life of tomorrow. Our life is the creation of our mind.”<cite>— Buddha</cite></div>
-      <div class="quote-item">“The thought manifests as the word. The word manifests as the deed. The deed develops into habit. And the habit hardens into character.”<cite>— Buddha</cite></div>
-    </section>
-
-    <section class="author-section">
-      <span class="author-label">SUCCESS PHILOSOPHER</span>
-      <h2 class="author-name">Napoleon Hill</h2>
-      <div class="quote-item">“Any idea, plan or purpose may be placed in the mind through repetition of thought.”<cite>— Napoleon Hill</cite></div>
-      <div class="quote-item">“Desire is the starting point of all achievement, not a hope, not a wish, but a keen pulsating desire.”<cite>— Napoleon Hill</cite></div>
-      <div class="quote-item">“The mind attracts the thing it dwells upon.”<cite>— Napoleon Hill</cite></div>
-    </section>
-
-    <section class="author-section">
-      <span class="author-label">SPIRITUAL LEADER</span>
-      <h2 class="author-name">Gandhi</h2>
-      <div class="quote-item">“A man is but the product of his thoughts. What he thinks he becomes.”<cite>— Gandhi</cite></div>
-    </section>
-
+  <div class="page-intro">
+    <h2>Law of Attraction Quotes</h2>
+    <p class="lead">From past historical figures to present day philosophers, the Law of Attraction has been revealing itself throughout history.</p>
   </div>
+
+  <main>
+
+    <section class="author-section">
+      <div class="author-header">
+        <div class="author-photo-placeholder">👤</div>
+        <p class="author-label">MYSTIC & LAW OF ASSUMPTION</p>
+        <h3 class="author-name">Neville Goddard</h3>
+      </div>
+      <blockquote class="quote"><p>Assume the feeling of your wish fulfilled and observe the route that your attention follows.</p><cite>— Neville Goddard</cite></blockquote>
+      <blockquote class="quote"><p>A change of feeling is a change of destiny.</p><cite>— Neville Goddard</cite></blockquote>
+      <blockquote class="quote"><p>Imagination is the only reality. All things exist in imagination before they exist in reality.</p><cite>— Neville Goddard</cite></blockquote>
+    </section>
+
+    <section class="author-section">
+      <div class="author-header">
+        <div class="author-photo-placeholder">👤</div>
+        <p class="author-label">NEW THOUGHT PIONEER</p>
+        <h3 class="author-name">William Walker Atkinson</h3>
+      </div>
+      <blockquote class="quote"><p>The best way to overcome undesirable or negative thoughts and feelings is to cultivate the positive ones.</p><cite>— William Walker Atkinson</cite></blockquote>
+      <blockquote class="quote"><p>A mental image gives you a framework upon which to work. It is like the drawing of the architect, or the map of the explorer.</p><cite>— William Walker Atkinson</cite></blockquote>
+    </section>
+
+    <section class="author-section">
+      <div class="author-header">
+        <div class="author-photo-placeholder">☸️</div>
+        <p class="author-label">ANCIENT WISDOM</p>
+        <h3 class="author-name">Buddha</h3>
+      </div>
+      <blockquote class="quote"><p>What we are today comes from our thoughts of yesterday, and our present thoughts build our life of tomorrow. Our life is the creation of our mind.</p><cite>— Buddha</cite></blockquote>
+      <blockquote class="quote"><p>The thought manifests as the word. The word manifests as the deed. The deed develops into habit. And the habit hardens into character.</p><cite>— Buddha</cite></blockquote>
+    </section>
+
+    <section class="author-section">
+      <div class="author-header">
+        <div class="author-photo-placeholder">🕊️</div>
+        <p class="author-label">SPIRITUAL LEADER</p>
+        <h3 class="author-name">Gandhi</h3>
+      </div>
+      <blockquote class="quote"><p>A man is but the product of his thoughts. What he thinks he becomes.</p><cite>— Gandhi</cite></blockquote>
+    </section>
+
+    <section class="author-section">
+      <div class="author-header">
+        <div class="author-photo-placeholder">👤</div>
+        <p class="author-label">SUCCESS PHILOSOPHER</p>
+        <h3 class="author-name">Napoleon Hill</h3>
+      </div>
+      <blockquote class="quote"><p>Any idea, plan or purpose may be placed in the mind through repetition of thought.</p><cite>— Napoleon Hill</cite></blockquote>
+      <blockquote class="quote"><p>Desire is the starting point of all achievement, not a hope, not a wish, but a keen pulsating desire.</p><cite>— Napoleon Hill</cite></blockquote>
+    </section>
+
+    <section class="author-section">
+      <div class="author-header">
+        <div class="author-photo-placeholder">👤</div>
+        <p class="author-label">NEW THOUGHT AUTHOR</p>
+        <h3 class="author-name">Wallace D. Wattles</h3>
+      </div>
+      <blockquote class="quote"><p>Thought is the creative power, or the impelling force which causes the creative power to act.</p><cite>— Wallace D. Wattles</cite></blockquote>
+      <blockquote class="quote"><p>The grateful mind is constantly fixated upon the best. Therefore it tends to become the best.</p><cite>— Wallace D. Wattles</cite></blockquote>
+    </section>
+
+  </main>
 
   <footer>
     <p>© 2013 - 2026 Law of Attraction Central | Established 2013</p>
