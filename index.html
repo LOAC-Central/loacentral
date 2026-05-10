@@ -10,12 +10,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 
-  <style>
+    <style>
     /* RESET & BASE */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Lato', sans-serif; background: #f9f6f0; color: #1a1a1a; line-height: 1.8; }
     
-    /* THE FULL-WIDTH HEADER (Fixed to your request) */
+    /* HEADER */
     header { background: #000; width: 100%; }
     header img { 
       width: 100%; 
@@ -24,14 +24,38 @@
       margin: 0 auto;
     }
     
-    /* THE NAV BAR */
-    nav { background: #0f0f0f; padding: 15px; text-align: center; border-bottom: 1px solid #d4af7a; position: sticky; top: 0; z-index: 1000; }
-    nav a { color: #d4af7a; text-decoration: none; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; margin: 0 15px; font-weight: 400; }
+    /* FIXED NAV */
+    nav { 
+      background: #0f0f0f; 
+      padding: 15px; 
+      text-align: center; 
+      border-bottom: 1px solid #d4af7a; 
+      position: sticky; 
+      top: 0; 
+      z-index: 1000; 
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+    }
+    nav li { display: inline; }
+    nav a { 
+      color: #d4af7a; 
+      text-decoration: none; 
+      font-size: 0.8rem; 
+      letter-spacing: 0.15em; 
+      text-transform: uppercase; 
+      font-weight: 400; 
+    }
     nav a:hover { color: #fff; }
 
-    /* THE CONTENT CONTAINER (Keeps text readable) */
+    /* THE REST OF YOUR STYLES (unchanged) */
     .container { max-width: 850px; margin: 0 auto; padding: 60px 20px; }
-    
     .hero-intro { text-align: center; margin-bottom: 80px; }
     .hero-intro h1 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; margin-bottom: 20px; font-weight: 400; color: #000; line-height: 1.1; }
     .hero-intro p { font-size: 1.3rem; font-style: italic; color: #666; max-width: 600px; margin: 0 auto; }
@@ -51,7 +75,6 @@
       margin: 40px 0; 
     }
 
-    /* THE THREE PILLAR BOXES */
     .pillar-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 60px; }
     .card { background: #fff; border: 1px solid #e0e0e0; padding: 30px; text-align: center; text-decoration: none; color: inherit; transition: 0.3s; }
     .card:hover { border-color: #d4af7a; transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
