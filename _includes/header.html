@@ -7,16 +7,9 @@
 </noscript>
 
 <style>
-  /* =============================================
-     HEADER IMAGE — ZERO CLS
-     Explicit width/height prevents layout shift.
-     aspect-ratio mirrors those dimensions so it
-     scales responsively without reflow.
-  ============================================= */
   header {
     background: #0b0b0b;
     width: 100%;
-    /* Reserve exact space before image loads — kills CLS */
     aspect-ratio: 1440 / 533;
     overflow: hidden;
   }
@@ -25,18 +18,12 @@
     display: block;
     width: 100%;
     height: auto;
-    /* Explicit dimensions — PageSpeed requirement */
   }
 
-  /* =============================================
-     CHECKBOX HACK — ZERO JS MOBILE MENU
-     Hidden checkbox controls open/close state.
-  ============================================= */
   #nav-toggle { display: none; }
 
   .nav-toggle-label {
     display: none;
-    /* Hidden on desktop */
     cursor: pointer;
     padding: 12px 15px;
     position: absolute;
@@ -46,7 +33,6 @@
     z-index: 1001;
   }
 
-  /* Hamburger bars */
   .nav-toggle-label span,
   .nav-toggle-label span::before,
   .nav-toggle-label span::after {
@@ -66,7 +52,7 @@
   .nav-toggle-label span::before { top: -7px; }
   .nav-toggle-label span::after  { top: 7px; }
 
-  /* Animate to X when checked */
+  /* X animation â€” the rules Gemini dropped */
   #nav-toggle:checked + nav .nav-toggle-label span { background: transparent; }
   #nav-toggle:checked + nav .nav-toggle-label span::before {
     transform: rotate(45deg);
@@ -77,9 +63,6 @@
     top: 0;
   }
 
-  /* =============================================
-     STICKY NAV — DESKTOP
-  ============================================= */
   nav {
     background: #0f0f0f;
     border-bottom: 1px solid #d4af7a;
@@ -118,10 +101,6 @@
     background: rgba(212, 175, 122, 0.08);
   }
 
-  /* =============================================
-     MOBILE NAV — CHECKBOX HACK
-     Breakpoint: 768px
-  ============================================= */
   @media (max-width: 768px) {
     nav {
       position: sticky;
@@ -129,12 +108,10 @@
       padding: 0;
     }
 
-    /* Show hamburger label on mobile */
     .nav-toggle-label {
       display: block;
     }
 
-    /* Nav wrapper needs relative for hamburger positioning */
     .nav-inner {
       position: relative;
       padding: 14px 15px;
@@ -144,7 +121,6 @@
       min-height: 50px;
     }
 
-    /* Site name / brand in mobile bar */
     .nav-brand {
       font-family: 'Cormorant Garamond', serif;
       color: #d4af7a;
@@ -153,7 +129,6 @@
       text-transform: uppercase;
     }
 
-    /* Hide menu by default on mobile */
     nav ul {
       display: none;
       flex-direction: column;
@@ -161,7 +136,6 @@
       border-top: 1px solid rgba(212, 175, 122, 0.2);
     }
 
-    /* Show menu when checkbox is checked */
     #nav-toggle:checked + nav ul {
       display: flex;
     }
@@ -208,7 +182,7 @@
     <li><a href="{{ site.baseurl }}/">Home</a></li>
     <li><a href="{{ site.baseurl }}/law-of-attraction-quotes/">Quotes</a></li>
     <li><a href="{{ site.baseurl }}/law-of-attraction-classroom/">Classroom</a></li>
-    <li><a href="{{ site.baseurl }}/contact/">Contact</a></li>
+    <li><a href="{{ site.baseurl }}/About/">About</a></li>
     <li><a href="{{ site.baseurl }}/law-of-attraction-love-relationships/">Love &amp; Relationships</a></li>
     <li><a href="{{ site.baseurl }}/law-attraction-money-abundance-101/">Money &amp; Finance</a></li>
     <li><a href="{{ site.baseurl }}/how-to-guide/">How To Guide</a></li>
