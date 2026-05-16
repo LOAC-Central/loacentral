@@ -1,3 +1,188 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</noscript>
+
+<style>
+  /* =============================================
+     HEADER IMAGE — ZERO CLS
+     Explicit width/height prevents layout shift.
+     aspect-ratio mirrors those dimensions so it
+     scales responsively without reflow.
+  ============================================= */
+  header {
+    background: #0b0b0b;
+    width: 100%;
+    /* Reserve exact space before image loads — kills CLS */
+    aspect-ratio: 1440 / 533;
+    overflow: hidden;
+  }
+
+  header img {
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Explicit dimensions — PageSpeed requirement */
+  }
+
+  /* =============================================
+     CHECKBOX HACK — ZERO JS MOBILE MENU
+     Hidden checkbox controls open/close state.
+  ============================================= */
+  #nav-toggle { display: none; }
+
+  .nav-toggle-label {
+    display: none;
+    /* Hidden on desktop */
+    cursor: pointer;
+    padding: 12px 15px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1001;
+  }
+
+  /* Hamburger bars */
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background: #d4af7a;
+    height: 2px;
+    width: 22px;
+    border-radius: 1px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    content: '';
+    position: absolute;
+  }
+  .nav-toggle-label span::before { top: -7px; }
+  .nav-toggle-label span::after  { top: 7px; }
+
+  /* Animate to X when checked */
+  #nav-toggle:checked + nav .nav-toggle-label span { background: transparent; }
+  #nav-toggle:checked + nav .nav-toggle-label span::before {
+    transform: rotate(45deg);
+    top: 0;
+  }
+  #nav-toggle:checked + nav .nav-toggle-label span::after {
+    transform: rotate(-45deg);
+    top: 0;
+  }
+
+  /* =============================================
+     STICKY NAV — DESKTOP
+  ============================================= */
+  nav {
+    background: #0f0f0f;
+    border-bottom: 1px solid #d4af7a;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    color: #d4af7a;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    padding: 16px 14px;
+    transition: color 0.2s ease, background 0.2s ease;
+    white-space: nowrap;
+  }
+
+  nav ul li a:hover {
+    color: #fff;
+    background: rgba(212, 175, 122, 0.08);
+  }
+
+  /* =============================================
+     MOBILE NAV — CHECKBOX HACK
+     Breakpoint: 768px
+  ============================================= */
+  @media (max-width: 768px) {
+    nav {
+      position: sticky;
+      top: 0;
+      padding: 0;
+    }
+
+    /* Show hamburger label on mobile */
+    .nav-toggle-label {
+      display: block;
+    }
+
+    /* Nav wrapper needs relative for hamburger positioning */
+    .nav-inner {
+      position: relative;
+      padding: 14px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+    }
+
+    /* Site name / brand in mobile bar */
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      color: #d4af7a;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Hide menu by default on mobile */
+    nav ul {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      border-top: 1px solid rgba(212, 175, 122, 0.2);
+    }
+
+    /* Show menu when checkbox is checked */
+    #nav-toggle:checked + nav ul {
+      display: flex;
+    }
+
+    nav ul li {
+      width: 100%;
+      text-align: center;
+      border-bottom: 1px solid rgba(212, 175, 122, 0.1);
+    }
+
+    nav ul li:last-child {
+      border-bottom: none;
+    }
+
+    nav ul li a {
+      padding: 14px 20px;
+      font-size: 0.8rem;
+    }
+  }
+</style>
+
 <header>
   <img
     src="{{ site.baseurl }}/header.webp"
@@ -11,6 +196,7 @@
 <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation">
 
 <nav aria-label="Main navigation">
+
   <div class="nav-inner">
     <span class="nav-brand">Law of Attraction Central</span>
     <label class="nav-toggle-label" for="nav-toggle" aria-label="Open menu">
@@ -26,6 +212,6 @@
     <li><a href="{{ site.baseurl }}/law-of-attraction-love-relationships/">Love &amp; Relationships</a></li>
     <li><a href="{{ site.baseurl }}/law-attraction-money-abundance-101/">Money &amp; Finance</a></li>
     <li><a href="{{ site.baseurl }}/how-to-guide/">How To Guide</a></li>
-    <li><a href="{{ site.baseurl }}/About/">About</a></li>
   </ul>
+
 </nav>
