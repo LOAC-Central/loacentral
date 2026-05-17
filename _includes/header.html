@@ -7,6 +7,7 @@
 </noscript>
 
 <style>
+  /* HEADER IMAGE — ZERO CLS */
   header {
     background: #0b0b0b;
     width: 100%;
@@ -20,8 +21,10 @@
     height: auto;
   }
 
+  /* CHECKBOX HACK */
   #nav-toggle { display: none; }
 
+  /* Hamburger label — hidden on desktop, shown on mobile only */
   .nav-toggle-label {
     display: none;
     cursor: pointer;
@@ -52,7 +55,7 @@
   .nav-toggle-label span::before { top: -7px; }
   .nav-toggle-label span::after  { top: 7px; }
 
-  /* X animation â€” the rules Gemini dropped */
+  /* X animation */
   #nav-toggle:checked + nav .nav-toggle-label span { background: transparent; }
   #nav-toggle:checked + nav .nav-toggle-label span::before {
     transform: rotate(45deg);
@@ -63,6 +66,7 @@
     top: 0;
   }
 
+  /* STICKY NAV — DESKTOP */
   nav {
     background: #0f0f0f;
     border-bottom: 1px solid #d4af7a;
@@ -70,6 +74,11 @@
     top: 0;
     z-index: 1000;
     width: 100%;
+  }
+
+  /* nav-inner and nav-brand: hidden on desktop entirely */
+  .nav-inner {
+    display: none;
   }
 
   nav ul {
@@ -91,7 +100,7 @@
     letter-spacing: 0.15em;
     text-transform: uppercase;
     font-weight: 400;
-    padding: 16px 14px;
+    padding: 14px 14px;
     transition: color 0.2s ease, background 0.2s ease;
     white-space: nowrap;
   }
@@ -101,21 +110,17 @@
     background: rgba(212, 175, 122, 0.08);
   }
 
+  /* MOBILE NAV */
   @media (max-width: 768px) {
-    nav {
-      position: sticky;
-      top: 0;
-      padding: 0;
-    }
 
     .nav-toggle-label {
       display: block;
     }
 
     .nav-inner {
+      display: flex;
       position: relative;
       padding: 14px 15px;
-      display: flex;
       align-items: center;
       justify-content: center;
       min-height: 50px;
@@ -182,7 +187,7 @@
     <li><a href="{{ site.baseurl }}/">Home</a></li>
     <li><a href="{{ site.baseurl }}/law-of-attraction-quotes/">Quotes</a></li>
     <li><a href="{{ site.baseurl }}/law-of-attraction-classroom/">Classroom</a></li>
-    <li><a href="{{ site.baseurl }}/About/">About</a></li>
+    <li><a href="{{ site.baseurl }}/about/">About</a></li>
     <li><a href="{{ site.baseurl }}/law-of-attraction-love-relationships/">Love &amp; Relationships</a></li>
     <li><a href="{{ site.baseurl }}/law-attraction-money-abundance-101/">Money &amp; Finance</a></li>
     <li><a href="{{ site.baseurl }}/how-to-guide/">How To Guide</a></li>
