@@ -1,22 +1,332 @@
 <style>
-  /* HEADER IMAGE — ZERO CLS */
-  header {
-    background: #0b0b0b;
+  /* ─────────────────────────────────────────
+     DESIGN SYSTEM TOKENS
+  ───────────────────────────────────────── */
+  :root {
+    --bg-header:    #000000;
+    --gold-light:   #fdf6e2;
+    --gold-mid:     #d4af7a;
+    --gold-dark:    #8a6421;
+    --silver-light: #ffffff;
+    --silver-mid:   #a0a0a0;
+    --silver-dark:  #4a4a4a;
+  }
+
+  /* ─────────────────────────────────────────
+     MASTER HEADER
+  ───────────────────────────────────────── */
+  .master-header {
+    position: relative;
+    background: var(--bg-header);
     width: 100%;
-    aspect-ratio: 1440 / 533;
+    padding: 52px 24px 44px;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     overflow: hidden;
   }
 
-  header img {
-    display: block;
-    width: 100%;
-    height: auto;
+  /* Ambient glow — no reflow, pointer-events off */
+  .header-ambient-glow {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 750px;
+    height: 280px;
+    background: radial-gradient(circle,
+      rgba(212,175,122,0.12) 0%,
+      rgba(184,137,42,0.03) 60%,
+      transparent 100%);
+    pointer-events: none;
+    z-index: 1;
   }
 
-  /* CHECKBOX HACK */
+  .header-content-container {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  /* ── Title ── */
+  .brand-main-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 52px);
+    font-weight: 400;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    margin: 0 auto 16px;
+    padding: 0;
+    background: linear-gradient(180deg,
+      #ffffff 0%, #e8cb97 45%, #b38946 55%, #fbf3d5 90%, #8a6421 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.85));
+  }
+
+  /* ── Central divider row ── */
+  .central-row-wrapper {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+    max-width: 680px;
+    margin: 0 auto 24px;
+  }
+
+  .accent-line-left-container,
+  .accent-line-right-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 20px;
+    width: 100%;
+  }
+  .accent-line-left-container  { justify-content: flex-end; }
+  .accent-line-right-container { justify-content: flex-start; }
+
+  .accent-line-left {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%, var(--gold-dark) 60%, var(--gold-light) 100%);
+  }
+  .accent-line-right {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg,
+      var(--gold-light) 0%, var(--gold-dark) 40%, transparent 100%);
+  }
+
+  .star-flare {
+    color: var(--gold-light);
+    font-size: 20px;
+    line-height: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-shadow: 0 0 8px rgba(255,255,255,0.9), 0 0 4px var(--gold-mid);
+  }
+  .star-flare.left-side  { right: -2px; }
+  .star-flare.right-side { left: -2px; }
+
+  /* ── Compass Icon ── */
+  .brand-secondary-icon-container {
+    position: relative;
+    width: 58px;
+    height: 58px;
+    margin: 0 30px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #1a140e 0%, #0a0806 65%, #000000 100%);
+    box-shadow:
+      0 0 0 1px var(--gold-dark),
+      inset 0 0 8px rgba(0,0,0,0.95),
+      0 4px 10px rgba(0,0,0,0.75),
+      0 0 14px rgba(212,175,122,0.55),
+      0 0 28px rgba(212,175,122,0.25),
+      0 0 48px rgba(184,137,42,0.12);
+    flex-shrink: 0;
+  }
+
+  .avatar-bevel-rim {
+    position: absolute;
+    top: 2px; left: 2px; right: 2px; bottom: 2px;
+    border-radius: 50%;
+    border: 1.5px solid transparent;
+    background: linear-gradient(135deg,
+      var(--gold-light) 0%, var(--gold-dark) 50%, var(--gold-light) 100%) border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    opacity: 1;
+    filter: drop-shadow(0 0 3px rgba(253,246,226,0.6));
+  }
+
+  .avatar-tracker-ring {
+    position: absolute;
+    top: 5px; left: 5px; right: 5px; bottom: 5px;
+    border-radius: 50%;
+    border: 1px double rgba(212,175,122,0.4);
+  }
+
+  .avatar-center-vortex {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: radial-gradient(circle,
+      #ffffff 0%, #fff0d0 25%, var(--gold-mid) 55%, var(--gold-dark) 100%);
+    z-index: 20;
+    box-shadow:
+      0 0 10px var(--gold-mid),
+      0 0 4px #ffffff,
+      0 0 18px rgba(212,175,122,0.5);
+  }
+
+  .compass-needle-group {
+    position: absolute;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
+    z-index: 10;
+  }
+
+  .needle-point {
+    position: absolute;
+    transform-origin: bottom center;
+  }
+
+  /* Primary (N/E/S/W) — gold */
+  .needle-point.primary {
+    width: 0; height: 0;
+    bottom: 50%; left: 50%;
+  }
+  .needle-point.primary::before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 2.5px; height: 21px;
+    background: linear-gradient(90deg, #ffffff 0%, var(--gold-light) 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+  .needle-point.primary::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 2.5px; height: 21px;
+    background: linear-gradient(90deg, var(--gold-dark) 0%, #442f0b 100%);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  }
+
+  /* Secondary (NE/SE/SW/NW) — silver */
+  .needle-point.secondary {
+    width: 0; height: 0;
+    bottom: 50%; left: 50%;
+  }
+  .needle-point.secondary::before {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 2px; height: 15px;
+    background: linear-gradient(90deg, #ffffff 0%, var(--silver-light) 100%);
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+  .needle-point.secondary::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 2px; height: 15px;
+    background: linear-gradient(90deg, var(--silver-mid) 0%, var(--silver-dark) 100%);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  }
+
+  .pt-n  { transform: translateX(-50%) rotate(0deg); }
+  .pt-ne { transform: translateX(-50%) rotate(45deg); }
+  .pt-e  { transform: translateX(-50%) rotate(90deg); }
+  .pt-se { transform: translateX(-50%) rotate(135deg); }
+  .pt-s  { transform: translateX(-50%) rotate(180deg); }
+  .pt-sw { transform: translateX(-50%) rotate(225deg); }
+  .pt-w  { transform: translateX(-50%) rotate(270deg); }
+  .pt-nw { transform: translateX(-50%) rotate(315deg); }
+
+  /* ── Tagline / subtitle ── */
+  .subtitle-row-box {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .border-divider-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .border-divider-line .line-strut {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(179,137,70,0.3) 20%,
+      rgba(253,246,226,0.45) 50%,
+      rgba(179,137,70,0.3) 80%,
+      transparent 100%);
+  }
+  .border-divider-line .diamond-node {
+    color: var(--gold-dark);
+    font-size: 9px;
+    opacity: 0.7;
+  }
+  .border-divider-line .diamond-node.left  { margin-right: 12px; }
+  .border-divider-line .diamond-node.right { margin-left: 12px; }
+
+  .tagline-text-element {
+    font-family: 'Lato', sans-serif;
+    font-size: clamp(10px, 1.3vw, 13px);
+    font-weight: 400;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: #e5c48f;
+    margin: 11px 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(12px, 3vw, 32px);
+    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.6));
+  }
+
+  /* ─────────────────────────────────────────
+     MOBILE HEADER BREAKPOINTS
+  ───────────────────────────────────────── */
+  @media (max-width: 600px) {
+    .master-header {
+      padding: 32px 16px 28px;
+    }
+    .brand-secondary-icon-container {
+      width: 46px;
+      height: 46px;
+      margin: 0 18px;
+    }
+    .brand-secondary-icon-container .avatar-center-vortex {
+      width: 9px;
+      height: 9px;
+    }
+    .brand-secondary-icon-container .needle-point.primary::before,
+    .brand-secondary-icon-container .needle-point.primary::after {
+      width: 2px;
+      height: 16px;
+    }
+    .brand-secondary-icon-container .needle-point.secondary::before,
+    .brand-secondary-icon-container .needle-point.secondary::after {
+      width: 1.5px;
+      height: 12px;
+    }
+    .central-row-wrapper {
+      max-width: 100%;
+    }
+    .tagline-text-element {
+      flex-direction: column;
+      gap: 4px;
+      letter-spacing: 0.18em;
+    }
+  }
+
+  /* ─────────────────────────────────────────
+     CHECKBOX HACK
+  ───────────────────────────────────────── */
   #nav-toggle { display: none; }
 
-  /* Hamburger label — hidden on desktop */
   .nav-toggle-label {
     display: none;
     cursor: pointer;
@@ -27,7 +337,6 @@
     transform: translateY(-50%);
     z-index: 1001;
   }
-
   .nav-toggle-label span,
   .nav-toggle-label span::before,
   .nav-toggle-label span::after {
@@ -47,18 +356,17 @@
   .nav-toggle-label span::before { top: -7px; }
   .nav-toggle-label span::after  { top: 7px; }
 
-  /* X animation when open */
   #nav-toggle:checked ~ nav .nav-toggle-label span { background: transparent; }
   #nav-toggle:checked ~ nav .nav-toggle-label span::before {
-    transform: rotate(45deg);
-    top: 0;
+    transform: rotate(45deg); top: 0;
   }
   #nav-toggle:checked ~ nav .nav-toggle-label span::after {
-    transform: rotate(-45deg);
-    top: 0;
+    transform: rotate(-45deg); top: 0;
   }
 
-  /* STICKY NAV */
+  /* ─────────────────────────────────────────
+     STICKY NAV
+  ───────────────────────────────────────── */
   nav {
     background: #0f0f0f;
     border-bottom: 1px solid #d4af7a;
@@ -68,7 +376,6 @@
     width: 100%;
   }
 
-  /* nav-inner: hidden on desktop */
   .nav-inner {
     display: none;
   }
@@ -83,11 +390,14 @@
     margin: 0;
   }
 
-  nav ul li a {
+  /* FIX 1: explicit gold + visited state beats browser UA defaults */
+  nav ul li a,
+  nav ul li a:visited {
     display: block;
     color: #d4af7a;
     text-decoration: none;
     font-family: 'Lato', sans-serif;
+    /* FIX 2: font-weight 400 matches the loaded Lato subset */
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -96,19 +406,17 @@
     transition: color 0.2s ease, background 0.2s ease;
     white-space: nowrap;
   }
-
   nav ul li a:hover,
   nav ul li a[aria-current="page"] {
     color: #fff;
-    background: rgba(212, 175, 122, 0.08);
+    background: rgba(212,175,122,0.08);
   }
 
-  /* MOBILE NAV */
+  /* ─────────────────────────────────────────
+     MOBILE NAV
+  ───────────────────────────────────────── */
   @media (max-width: 768px) {
-
-    .nav-toggle-label {
-      display: block;
-    }
+    .nav-toggle-label { display: block; }
 
     .nav-inner {
       display: flex;
@@ -119,8 +427,10 @@
       min-height: 50px;
     }
 
+    /* FIX 3: Cormorant weight 400 matches font load — was referencing 500 before */
     .nav-brand {
       font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
       color: #d4af7a;
       font-size: 0.9rem;
       letter-spacing: 0.1em;
@@ -131,40 +441,84 @@
       display: none;
       flex-direction: column;
       width: 100%;
-      border-top: 1px solid rgba(212, 175, 122, 0.2);
+      border-top: 1px solid rgba(212,175,122,0.2);
     }
 
-    #nav-toggle:checked ~ nav ul {
-      display: flex;
-    }
+    #nav-toggle:checked ~ nav ul { display: flex; }
 
     nav ul li {
       width: 100%;
       text-align: center;
-      border-bottom: 1px solid rgba(212, 175, 122, 0.1);
+      border-bottom: 1px solid rgba(212,175,122,0.1);
     }
+    nav ul li:last-child { border-bottom: none; }
 
-    nav ul li:last-child {
-      border-bottom: none;
-    }
-
-    nav ul li a {
+    nav ul li a,
+    nav ul li a:visited {
       padding: 14px 20px;
       font-size: 0.8rem;
     }
   }
 </style>
 
-<header>
-  <img
-    src="{{ site.baseurl }}/header.webp"
-    srcset="{{ site.baseurl }}/header-mobile.webp 800w, {{ site.baseurl }}/header.webp 1440w"
-    sizes="(max-width: 800px) 100vw, 1440px"
-    alt="Law of Attraction Central"
-    width="1440"
-    height="533"
-    fetchpriority="high"
-  >
+<!-- ══════════════════════════════════════════
+     CSS HEADER (zero HTTP request — replaces header image)
+══════════════════════════════════════════ -->
+<header class="master-header" role="banner">
+
+  <div class="header-ambient-glow" aria-hidden="true"></div>
+
+  <div class="header-content-container">
+
+    <h1 class="brand-main-title">Law of Attraction Central</h1>
+
+    <div class="central-row-wrapper" aria-hidden="true">
+      <div class="accent-line-left-container">
+        <div class="accent-line-left"></div>
+        <span class="star-flare left-side">✦</span>
+      </div>
+
+      <div class="brand-secondary-icon-container">
+        <div class="avatar-bevel-rim"></div>
+        <div class="avatar-tracker-ring"></div>
+        <div class="avatar-center-vortex"></div>
+        <div class="compass-needle-group">
+          <div class="needle-point primary pt-n"></div>
+          <div class="needle-point primary pt-e"></div>
+          <div class="needle-point primary pt-s"></div>
+          <div class="needle-point primary pt-w"></div>
+          <div class="needle-point secondary pt-ne"></div>
+          <div class="needle-point secondary pt-se"></div>
+          <div class="needle-point secondary pt-sw"></div>
+          <div class="needle-point secondary pt-nw"></div>
+        </div>
+      </div>
+
+      <div class="accent-line-right-container">
+        <span class="star-flare right-side">✦</span>
+        <div class="accent-line-right"></div>
+      </div>
+    </div>
+
+    <div class="subtitle-row-box" aria-hidden="true">
+      <div class="border-divider-line">
+        <span class="diamond-node left">✦</span>
+        <div class="line-strut"></div>
+        <span class="diamond-node right">✦</span>
+      </div>
+      <p class="tagline-text-element">
+        <span>Structured Thinking.</span>
+        <span>Empowered Living.</span>
+        <span>Conscious Creation.</span>
+      </p>
+      <div class="border-divider-line">
+        <span class="diamond-node left">✦</span>
+        <div class="line-strut"></div>
+        <span class="diamond-node right">✦</span>
+      </div>
+    </div>
+
+  </div>
 </header>
 
 <input type="checkbox" id="nav-toggle" aria-label="Toggle navigation">
