@@ -542,3 +542,32 @@
   </ul>
 
 </nav>
+<style>
+@media (max-width: 600px) {
+    /* 1. Force the inner nav container to split items edge-to-edge */
+    .nav-inner {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        width: 100% !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. Lock the brand name to the left margin and prevent wrapping */
+    .nav-brand {
+        text-align: left !important;
+        white-space: nowrap !important;
+        font-size: 1.15rem !important; /* Perfect scaling for mobile screens */
+    }
+
+    /* 3. Lock the hamburger label to the right wall and fix positioning overrides */
+    .nav-toggle-label {
+        margin-right: 0 !important;
+        position: static !important; /* Disables any absolute positioning overlaps */
+        display: flex !important;
+        align-items: center !important;
+    }
+}
+</style>
