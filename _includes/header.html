@@ -544,14 +544,14 @@
 </nav>
 <style>
 @media (max-width: 768px) {
-    /* 1. Ensure the nav container covers full screen width cleanly */
+/* 1. Ensure the nav container covers full screen width cleanly */
     .nav-inner {
         display: block !important;
         position: relative !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        /* Equal left and right cushions keep the middle text mathematically centered */
-        padding: 15px 60px 15px 60px !important; 
+        /* Dropped top/bottom padding to 10px to slim down the container height */
+        padding: 10px 60px 10px 60px !important; 
     }
 
  /* 2. Dynamically center the brand title and handle text wrapping gracefully */
