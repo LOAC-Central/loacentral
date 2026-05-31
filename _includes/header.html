@@ -545,27 +545,29 @@
 <!-- Global Mobile Header Optimization Final -->
 <style>
 @media (max-width: 768px) {
-    /* 1. Ensure the nav container covers full screen width cleanly */
+    /* 1. Establish a perfect Flexbox grid for the container */
     .nav-inner {
-        display: block !important;
+        display: flex !important;
+        align-items: center !important; /* Mathematically centers everything vertically */
+        justify-content: center !important; /* Centers elements horizontally */
         position: relative !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        /* Increased top padding slightly to 14px to push the single-line text down into the center */
-        padding: 14px 60px 10px 60px !important; 
+        height: 50px !important; /* Hard-set a clean, slim height for the bar */
+        padding: 0 60px !important; /* Completely strip top/bottom padding to let flexbox center it */
     }
 
-    /* 2. Dynamically center the brand title and handle text wrapping gracefully */
+    /* 2. Precision center the brand title text */
     .nav-brand {
-        display: block !important;
+        display: inline-block !important;
         text-align: center !important; 
         font-size: 1.0rem !important; 
         line-height: 1.2 !important;
         letter-spacing: 1px !important; 
         white-space: normal !important; 
         color: #c5a059 !important;
-        /* Wipes out any ghost margins from the theme causing the text to float high */
-        margin: 0 auto !important;
+        margin: 0 !important; /* Wipe out ghost margins entirely */
+        padding: 0 !important;
         width: 100% !important;
     }
 
