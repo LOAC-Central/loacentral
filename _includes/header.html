@@ -542,37 +542,42 @@
   </ul>
 
 </nav>
+<!-- Global Mobile Header Optimization Final -->
 <style>
 @media (max-width: 768px) {
-/* 1. Ensure the nav container covers full screen width cleanly */
+    /* 1. Ensure the nav container covers full screen width cleanly */
     .nav-inner {
         display: block !important;
         position: relative !important;
         width: 100% !important;
         box-sizing: border-box !important;
-        /* Dropped top/bottom padding to 10px to slim down the container height */
-        padding: 10px 60px 10px 60px !important; 
+        /* Increased top padding slightly to 14px to push the single-line text down into the center */
+        padding: 14px 60px 10px 60px !important; 
     }
 
- /* 2. Dynamically center the brand title and handle text wrapping gracefully */
+    /* 2. Dynamically center the brand title and handle text wrapping gracefully */
     .nav-brand {
         display: block !important;
         text-align: center !important; 
-        font-size: 1.0rem !important; /* Scaled down for a more elegant, premium feel */
-        line-height: 1.4 !important;
-        letter-spacing: 1px !important; /* Adds a touch of luxury breathing room between letters */
+        font-size: 1.0rem !important; 
+        line-height: 1.2 !important;
+        letter-spacing: 1px !important; 
         white-space: normal !important; 
         color: #c5a059 !important;
+        /* Wipes out any ghost margins from the theme causing the text to float high */
         margin: 0 auto !important;
         width: 100% !important;
     }
-    /* 3. Keep the hamburger locked to its right wall pocket */
+
+    /* 3. Keep the hamburger locked to its right wall pocket and perfectly centered */
     .nav-toggle-label {
         position: absolute !important;
         right: 15px !important;
         top: 50% !important;
-        transform: translateY(-50%) !important; /* Keeps it vertically lined up */
+        transform: translateY(-50%) !important; 
         margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
     }
 }
 </style>
