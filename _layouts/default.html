@@ -8,26 +8,41 @@
   {% if page.permalink %}
   <link rel="canonical" href="https://www.lawofattractioncentral.net{{ page.permalink }}" />
   {% endif %}
-
-  <!-- FONTS: non-blocking with font-display swap -->
+  <!-- FONTS: preconnect + non-blocking load with font-display swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!--
+    FIX: Added weight 400 for Cormorant Garamond to match header CSS.
+    Previously only 400;600 loaded — header referenced 500 which caused
+    synthetic bold rendering. Now 400 is explicit and header uses 400.
+  -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   </noscript>
-
   <style>
     /* GLOBAL BASE */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Lato', sans-serif;
       background: #f9f6f0;
-      color: #1a1a1a;
+      color: #555;
       line-height: 1.85;
     }
-
+    /* HEADING PROTECTION — keep section headers crisp and dark */
+    h1, h2, h3, h4, h5, h6 {
+      color: #1a1a1a;
+    }
+    /*
+      FIX: Neutral link reset so browser UA blue/white defaults
+      never bleed through. Each component (nav, content) sets
+      its own colour explicitly on top of this.
+    */
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
     /* SKIP TO MAIN — accessibility */
     .skip-link {
       position: absolute;
@@ -50,25 +65,63 @@
       font-size: 0.85rem;
       letter-spacing: 0.1em;
     }
-
     /* MAIN LANDMARK */
     main {
       display: block;
       width: 100%;
     }
+    /* GLOBAL BLOCKQUOTE — quote card styles */
+    blockquote {
+      background: #ffffff;
+      border-left: 6px solid #d4af7a;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+      border-radius: 4px;
+      padding: 2rem 2rem 1.5rem 2.5rem;
+      margin: 2rem 0;
+      position: relative;
+    }
+    blockquote::before {
+      content: '\201C';
+      color: #d4af7a;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      line-height: 1;
+      position: absolute;
+      top: -0.15rem;
+      left: 0.75rem;
+      pointer-events: none;
+    }
+    blockquote p {
+      color: #222;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      line-height: 1.75;
+      margin: 0 0 0.75rem;
+    }
+    blockquote cite,
+    blockquote footer {
+      display: block;
+      color: #7a5f3a;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    /* RESPONSIVE IMAGE — universal utility class */
+    .responsive-image {
+      display: block;
+      margin: 40px auto;
+      max-width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body>
-
   <a class="skip-link" href="#main-content">Skip to main content</a>
-
   {% include header.html %}
-
   <main id="main-content">
     {{ content }}
   </main>
-
   {% include footer.html %}
-
 </body>
 </html>
