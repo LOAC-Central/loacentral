@@ -204,7 +204,21 @@ schema: |
 
   /* ── BLOCK A: STEP INDEX GRID ── */
   .step-index {
+    /* FORCE NORMAL PAGE FLOW — overrides any inherited nav/header behavior */
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: auto !important;
+    float: none !important;
+    clear: both !important;
+    transform: none !important;
+    /* Visual — sits cleanly on the warm ivory canvas */
+    background: transparent !important;
     margin: 3rem 0 2.5rem;
+    width: auto;
+    max-width: none;
   }
 
   .step-index-label {
@@ -212,7 +226,7 @@ schema: |
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: #5c4520;
+    color: #5c4520 !important;
     margin-bottom: 1.25rem;
     display: block;
   }
@@ -221,8 +235,11 @@ schema: |
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    /* Strictly static flow — no position:fixed, no sticky, no z-index */
-    position: static;
+    position: static !important;
+    z-index: auto !important;
+    float: none !important;
+    clear: both !important;
+    background: transparent !important;
   }
 
   .step-card {
