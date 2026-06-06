@@ -10,7 +10,7 @@ schema: |
     "name": "How to Use the Law of Attraction",
     "description": "A four-step guide to using the Law of Attraction consciously and deliberately, covering Request, Belief, Trust, and Action.",
     "url": "https://www.lawofattractioncentral.net/how-to-use-the-law-of-attraction/",
-    "datePublished": "2012-01-01",
+    "datePublished": "2013-01-01",
     "dateModified": "2026-05-01",
     "author": {
       "@type": "Person",
@@ -62,256 +62,349 @@ schema: |
 ---
 
 <style>
-  /* ============================================================
-     PAGE LAYOUT
-  ============================================================ */
-  .page-intro {
-    max-width: 760px;
-    margin: 50px auto 10px;
-    padding: 0 20px;
-    text-align: center;
+  /* ── BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #f9f6f0;
+    color: #555;
+    line-height: 1.85;
   }
 
-  .page-intro h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 2.4rem;
-    font-weight: 400;
+  a { color: inherit; text-decoration: none; }
+
+  /* ── LAYOUT ── */
+  .page-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+  }
+
+  /* ── HEADINGS ── */
+  h1, h2, h3, h4, h5, h6 {
     color: #1a1a1a;
-    margin-bottom: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1.25;
   }
 
-  .page-intro .curator-credit {
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .page-byline {
+    font-family: 'Lato', sans-serif;
     font-size: 0.8rem;
     letter-spacing: 0.12em;
-    color: #5c4520;
     text-transform: uppercase;
-    margin-bottom: 6px;
+    color: #7a5f3a;
+    margin-bottom: 2.5rem;
   }
 
-  .page-intro .review-date {
-    font-size: 0.82rem;
-    color: #5c4520;
-    font-style: italic;
-    margin-bottom: 30px;
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e8e0d4;
   }
 
-  main.how-to-main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 0 20px 80px;
+  h3 {
+    font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    color: #2a2a2a;
   }
 
-  /* ============================================================
-     BODY CONTENT
-  ============================================================ */
-  .content-body p {
-    font-size: 1.05rem;
-    line-height: 1.85;
-    color: #2c2a29;
-    margin-bottom: 1.4em;
+  /* ── PARAGRAPHS ── */
+  p {
+    margin-bottom: 1.4rem;
+    font-size: 1.0625rem;
   }
 
-  .content-body h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    margin: 2.4em 0 0.6em;
-  }
+  em { font-style: italic; }
+  strong { color: #1a1a1a; font-weight: 400; }
 
-  .content-body h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 1.8em 0 0.4em;
-  }
-
-  /* ============================================================
-     HERO IMAGE
-  ============================================================ */
-  .hero-image {
-    margin: 32px 0 40px;
+  /* ── BLOCKQUOTE ── */
+  blockquote {
+    background: #ffffff;
+    border-left: 6px solid #d4af7a;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
     border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+    padding: 2rem 2rem 1.5rem 2.5rem;
+    margin: 0 0 2.5rem;
+    position: relative;
   }
 
-  .hero-image img {
+  blockquote::before {
+    content: '\201C';
+    color: #d4af7a;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    line-height: 1;
+    position: absolute;
+    top: -0.15rem;
+    left: 0.75rem;
+    pointer-events: none;
+  }
+
+  blockquote p {
+    color: #222;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    line-height: 1.75;
+    margin: 0 0 0.75rem;
+  }
+
+  blockquote cite {
     display: block;
-    width: 100%;
+    color: #5c4520;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  /* ── RESPONSIVE IMAGE ── */
+  .responsive-image {
+    display: block;
+    margin: 40px auto;
+    max-width: 100%;
     height: auto;
     border-radius: 4px;
   }
 
-  /* ============================================================
-     BLOCK A — STEP INDEX GRID (hub page only)
-  ============================================================ */
-  .step-index {
-    margin: 56px 0 48px;
-    border-top: 2px solid #d4af7a;
-    padding-top: 36px;
+  /* ── SECTION DIVIDER — Minimalist Gold Star ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 3rem 0 2rem;
+    position: relative;
   }
 
-  .step-index-heading {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 400;
-    color: #5c4520;
-    letter-spacing: 0.15em;
+  .section-divider .divider-line-left,
+  .section-divider .divider-line-right {
+    flex: 1;
+    height: 1px;
+    display: block;
+  }
+
+  .section-divider .divider-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 14px;
+    flex-shrink: 0;
+  }
+
+  /* ── BLOCK A: STEP INDEX GRID ── */
+  .step-index {
+    margin: 3rem 0 2.5rem;
+  }
+
+  .step-index-label {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    margin-bottom: 24px;
-    text-align: center;
+    color: #5c4520;
+    margin-bottom: 1.25rem;
+    display: block;
   }
 
   .step-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
+    /* Strictly static flow — no position:fixed, no sticky, no z-index */
+    position: static;
   }
 
   .step-card {
     background: #ffffff;
-    border: 1px solid #e8dfd0;
-    border-left: 5px solid #d4af7a;
-    border-radius: 3px;
-    padding: 22px 24px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border: 1px solid #e8e0d4;
+    border-top: 4px solid #d4af7a;
+    border-radius: 4px;
+    padding: 1.4rem 1.5rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
     text-decoration: none;
     display: block;
-    transition: box-shadow 0.2s ease, border-left-color 0.2s ease;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    color: inherit;
   }
 
   .step-card:hover {
-    box-shadow: 0 8px 28px rgba(0,0,0,0.11);
-    border-left-color: #b8923f;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+    transform: translateY(-2px);
   }
 
   .step-card .step-number {
-    font-size: 0.72rem;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.7rem;
     letter-spacing: 0.2em;
     color: #5c4520;
     text-transform: uppercase;
     display: block;
-    margin-bottom: 6px;
+    margin-bottom: 0.4rem;
   }
 
   .step-card .step-title {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.18rem;
+    font-size: 1.15rem;
     font-weight: 600;
     color: #1a1a1a;
-    line-height: 1.35;
+    line-height: 1.3;
+    display: block;
+    margin-bottom: 0.5rem;
   }
 
   .step-card .step-desc {
-    font-size: 0.88rem;
-    color: #4a4a4a;
-    margin-top: 8px;
-    line-height: 1.6;
+    font-size: 0.875rem;
+    color: #6a6a6a;
+    line-height: 1.65;
+    margin: 0;
   }
 
   @media (max-width: 560px) {
-    .step-grid {
-      grid-template-columns: 1fr;
-    }
+    .step-grid { grid-template-columns: 1fr; }
   }
 
-  /* ============================================================
-     CENTRAL SUMMARY BLOCK
-  ============================================================ */
-  .central-summary {
+  /* ── SUMMARY BOX — exact Love page match ── */
+  .summary-box {
     background: #ffffff;
-    border-left: 6px solid #d4af7a;
+    border: 1px solid #e8e0d4;
+    border-top: 4px solid #d4af7a;
+    border-radius: 4px;
+    padding: 2rem 2rem 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  }
+
+  .summary-box h2 {
+    border-bottom: none;
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .summary-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .summary-box ul li {
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-bottom: 1px solid #f0ebe3;
+    position: relative;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .summary-box ul li:last-child { border-bottom: none; }
+
+  .summary-box ul li::before {
+    content: '–';
+    color: #d4af7a;
+    position: absolute;
+    left: 0;
+  }
+
+  /* ── ACTION STEPS — exact Love page match ── */
+  .action-steps {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 2rem;
+    counter-reset: steps;
+  }
+
+  .action-steps li {
+    counter-increment: steps;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+    padding: 1rem 0;
+    border-bottom: 1px solid #ede8e0;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .action-steps li:last-child { border-bottom: none; }
+
+  .action-steps li::before {
+    content: counter(steps);
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+    background: #d4af7a;
+    color: #fff;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+
+  /* ── CLOSING LINE ── */
+  .closing-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    font-style: italic;
+    text-align: center;
+    margin: 2.5rem 0;
+    line-height: 1.6;
+  }
+
+  /* ── HR ── */
+  hr {
+    border: none;
+    border-top: 1px solid #e8e0d4;
+    margin: 3rem 0;
+  }
+
+  /* ── SOURCES / CITATION NOTE — white card on ivory ── */
+  .sources-note-block {
+    background: #ffffff;
     border-radius: 3px;
     box-shadow: 0 8px 25px rgba(0,0,0,0.07);
-    padding: 32px 36px;
-    margin: 48px 0 32px;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
   }
 
-  .central-summary .summary-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    color: #5c4520;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    display: block;
+  .sources-note-block p {
+    font-size: 0.875rem;
+    color: #6a6a6a;
+    font-style: italic;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
   }
 
-  .central-summary p {
-    font-size: 1rem;
-    line-height: 1.85;
-    color: #2c2a29;
-    margin: 0;
-  }
+  .sources-note-block p:last-child { margin-bottom: 0; }
 
-  /* ============================================================
-     CENTRAL ACTION STEP
-  ============================================================ */
-  .action-step {
-    background: #f9f6f0;
-    border: 1px solid #e8dfd0;
-    border-radius: 3px;
-    padding: 28px 32px;
-    margin: 0 0 48px;
-  }
+  .sources-note-block strong { color: #1a1a1a; }
 
-  .action-step .action-label {
-    font-size: 0.72rem;
-    letter-spacing: 0.2em;
-    color: #5c4520;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    display: block;
-  }
-
-  .action-step p {
-    font-size: 1rem;
-    line-height: 1.85;
-    color: #2c2a29;
-    margin: 0;
-  }
-
-  /* ============================================================
-     PAGE FOOTER
-  ============================================================ */
-  .page-footer {
-    max-width: 760px;
-    margin: 60px auto 0;
-    padding: 40px 20px 80px;
-    border-top: 1px solid #e8dfd0;
-    font-size: 0.92rem;
-    color: #4a4a4a;
-    line-height: 1.8;
-  }
-
-  .page-footer p {
-    margin-bottom: 16px;
-  }
-
-  .page-footer strong {
-    color: #1a1a1a;
-  }
-
-  .page-footer em {
-    color: #4a4a4a;
-  }
-
-  .page-footer a {
+  .sources-note-block a {
     color: #5c3d00;
     text-decoration: underline;
   }
 
-  .page-footer a:hover {
-    color: #3a2600;
-  }
+  .sources-note-block a:hover { color: #3a2600; }
 
-  .page-footer .curator-note {
+  .sources-note-block .curator-note {
     font-style: italic;
     color: #5c4520;
   }
 
-  /* Global theme footer override */
+  /* ── GLOBAL FOOTER OVERRIDE ── */
   footer p.footer-copy,
   footer p.footer-copy span,
   footer p.footer-copy a {
@@ -319,93 +412,166 @@ schema: |
   }
 </style>
 
-<div class="page-intro">
+<main class="page-wrapper" id="main-content">
+
   <h1>How to Use the Law of Attraction</h1>
-  <p class="curator-credit">Curated by Don Allen &mdash; Founder, Law of Attraction Central</p>
-  <p class="review-date">Last reviewed and updated May 2026</p>
-</div>
+  <p class="page-byline">Curated by Don Allen, Founder of Law of Attraction Central &nbsp;·&nbsp; Last reviewed May 2026</p>
 
-<main class="how-to-main">
+  <p>This page is the introduction to a four-part guide on using the Law of Attraction deliberately. It is written for anyone who has encountered these ideas and wants to move beyond general awareness into consistent, intentional practice. Each section of the guide builds on the one before it. This is where the sequence begins.</p>
 
-  <div class="content-body">
+  <!-- HERO IMAGE -->
+  <img
+    src="{{ site.baseurl }}/media/how-to/using-positive-thinking.webp"
+    alt="A person practising conscious positive thinking as an introduction to using the Law of Attraction"
+    width="780"
+    height="439"
+    class="responsive-image"
+    loading="lazy"
+    decoding="async"
+  >
 
-    <p>This page is the introduction to a four-part guide on using the Law of Attraction deliberately. It is written for anyone who has encountered these ideas and wants to move beyond general awareness into consistent, intentional practice. Each section of the guide builds on the one before it. This is where the sequence begins.</p>
+  <p>Even if you are not consciously aware of it, every human being uses the Law of Attraction. You have used it to create the life you are living today. You have used it to shape the events of your past. Through conscious and unconscious thought, you have attracted every feeling, every circumstance, and every reality you presently know or have previously experienced.</p>
 
-    <!-- HERO IMAGE -->
-    <div class="hero-image">
-      <img
-        src="{{ site.baseurl }}/media/how-to/using-positive-thinking.webp"
-        alt="A person practising conscious positive thinking as an introduction to using the Law of Attraction"
-        width="760"
-        height="480"
-        loading="lazy"
-        decoding="async"
-      >
+  <p>This is your life experience. You are the result of the intentions behind your thoughts, good and bad, deliberate and accidental. The Law of Attraction is indifferent to outcome or consequence. It responds to the true intent of any thought you hold, and it responds with an intensity that matches the intensity of that thought.</p>
+
+  <p>Understanding this is the beginning of everything.</p>
+
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg class="divider-line-left" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="fadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#d4af7a" stop-opacity="0"/>
+          <stop offset="100%" stop-color="#d4af7a" stop-opacity="1"/>
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeLeft)" stroke-width="1"/>
+    </svg>
+    <div class="divider-stars">
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
     </div>
+    <svg class="divider-line-right" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="fadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#d4af7a" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#d4af7a" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeRight)" stroke-width="1"/>
+    </svg>
+  </div>
 
-    <p>Even if you are not consciously aware of it, every human being uses the Law of Attraction. You have used it to create the life you are living today. You have used it to shape the events of your past. Through conscious and unconscious thought, you have attracted every feeling, every circumstance, and every reality you presently know or have previously experienced.</p>
+  <h2>What the Law of Attraction Actually Is</h2>
 
-    <p>This is your life experience. You are the result of the intentions behind your thoughts, good and bad, deliberate and accidental. The Law of Attraction is indifferent to outcome or consequence. It responds to the true intent of any thought you hold, and it responds with an intensity that matches the intensity of that thought.</p>
+  <p>Before you can begin to use the Law of Attraction to create the life you genuinely want, you need to understand what it is. It resists a single clean definition, but in essence the Law of Attraction describes the relationship between thought and experience — the way that the quality, frequency, and emotional intensity of your thinking shapes the conditions you encounter in the world.</p>
 
-    <p>Understanding this is the beginning of everything.</p>
+  <p>This is not a modern idea. The earliest recorded expression of it appears in the Hermetic tradition, the principle that the inner world and the outer world are reflections of each other. The same understanding runs through Buddhist and Hindu philosophy, through the New Thought movement of the nineteenth century, and into the scientific study of mind and consciousness that continues today. The vocabulary changes across traditions and centuries. The core observation does not.</p>
 
-    <h2>What the Law of Attraction Actually Is</h2>
+  <p>Every thought carries a quality — a frequency, in the language most LOA teachers use. Positive thoughts carry a higher frequency than negative ones. The Law does not evaluate which you deserve; it simply returns what you consistently broadcast. This is why two people can face identical external circumstances and move in entirely different directions. The difference is almost always internal before it is external.</p>
 
-    <p>Before you can begin to use the Law of Attraction to create the life you genuinely want, you need to understand what it is. It resists a single clean definition, but in essence the Law of Attraction describes the relationship between thought and experience — the way that the quality, frequency, and emotional intensity of your thinking shapes the conditions you encounter in the world.</p>
+  <p>With this understanding, each person can begin to use the Law deliberately. We can harness the real power of conscious thought by making a sustained effort to direct how we think and, in turn, how we feel.</p>
 
-    <p>This is not a modern idea. The earliest recorded expression of it appears in the Hermetic tradition, the principle that the inner world and the outer world are reflections of each other. The same understanding runs through Buddhist and Hindu philosophy, through the New Thought movement of the nineteenth century, and into the scientific study of mind and consciousness that continues today. The vocabulary changes across traditions and centuries. The core observation does not.</p>
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg class="divider-line-left" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <use href="#fadeLeft-def"/>
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeLeft)" stroke-width="1"/>
+    </svg>
+    <div class="divider-stars">
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+    </div>
+    <svg class="divider-line-right" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeRight)" stroke-width="1"/>
+    </svg>
+  </div>
 
-    <p>Every thought carries a quality — a frequency, in the language most LOA teachers use. Positive thoughts carry a higher frequency than negative ones. The Law does not evaluate which you deserve; it simply returns what you consistently broadcast. This is why two people can face identical external circumstances and move in entirely different directions. The difference is almost always internal before it is external.</p>
+  <h2>The Reconditioning Process</h2>
 
-    <p>With this understanding, each person can begin to use the Law deliberately. We can harness the real power of conscious thought by making a sustained effort to direct how we think and, in turn, how we feel.</p>
+  <p>To apply this understanding to your advantage, a shift in thinking is required — and for most people that shift is significant, because the default direction of the untrained mind is negative.</p>
 
-    <h2>The Reconditioning Process</h2>
+  <p>Most people spend far more time thinking about the things they do not want than the things they do. This is not a character flaw. It is a deeply ingrained habit, shaped by years of unconscious repetition. And like all habits, it can be changed with consistent, deliberate effort.</p>
 
-    <p>To apply this understanding to your advantage, a shift in thinking is required — and for most people that shift is significant, because the default direction of the untrained mind is negative.</p>
+  <p>One of the first and most important things to understand is that the Law of Attraction does not recognise words like "don't" or "won't." These words do not neutralise the negative feeling carried by the thought that contains them. Thinking "I do not want to be stuck in traffic" is still a thought saturated with anxiety and the anticipation of something unwanted. The phrase "do not" has no effect on the emotional frequency being broadcast. The Law reads that thought as a signal oriented toward exactly what you are trying to avoid.</p>
 
-    <p>Most people spend far more time thinking about the things they do not want than the things they do. This is not a character flaw. It is a deeply ingrained habit, shaped by years of unconscious repetition. And like all habits, it can be changed with consistent, deliberate effort.</p>
+  <p>Negative thoughts also compound. One is enough to begin a chain reaction. Many people have experienced waking in a difficult mood for no obvious reason, and then watching the morning deteriorate from there. A small frustration. Running late. One thing after another. This is not bad luck. It is the momentum of a negative frequency gathering force.</p>
 
-    <p>One of the first and most important things to understand is that the Law of Attraction does not recognise words like "don't" or "won't." These words do not neutralise the negative feeling carried by the thought that contains them. Thinking "I do not want to be stuck in traffic" is still a thought saturated with anxiety and the anticipation of something unwanted. The phrase "do not" has no effect on the emotional frequency being broadcast. The Law reads that thought as a signal oriented toward exactly what you are trying to avoid.</p>
+  <p>The reversal works by the same principle. Replace the negative thought deliberately with a positively stated version of what you actually want. Rather than "I do not want to be late," think "I will arrive with time to spare." That single shift changes the entire emotional current of the thought. The pressure lifts. Your mind moves naturally toward what becomes possible — the calm start to your meeting, the extra time, the ease of being prepared. One good thought leads to another. The frequency builds in the other direction.</p>
 
-    <p>Negative thoughts also compound. One is enough to begin a chain reaction. Many people have experienced waking in a difficult mood for no obvious reason, and then watching the morning deteriorate from there. A small frustration. Running late. One thing after another. This is not bad luck. It is the momentum of a negative frequency gathering force.</p>
+  <p>This is not wishful thinking. It is the deliberate redirection of a mechanism that is already running — pointed, for once, where you actually want to go.</p>
 
-    <p>The reversal works by the same principle. Replace the negative thought deliberately with a positively stated version of what you actually want. Rather than "I do not want to be late," think "I will arrive with time to spare." That single shift changes the entire emotional current of the thought. The pressure lifts. Your mind moves naturally toward what becomes possible — the calm start to your meeting, the extra time, the ease of being prepared. One good thought leads to another. The frequency builds in the other direction.</p>
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg class="divider-line-left" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeLeft)" stroke-width="1"/>
+    </svg>
+    <div class="divider-stars">
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+    </div>
+    <svg class="divider-line-right" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeRight)" stroke-width="1"/>
+    </svg>
+  </div>
 
-    <p>This is not wishful thinking. It is the deliberate redirection of a mechanism that is already running — pointed, for once, where you actually want to go.</p>
+  <h2>You Do Not Need to Know How</h2>
 
-    <h2>You Do Not Need to Know How</h2>
+  <p>One of the most practically useful aspects of working with the Law of Attraction is this: you do not need to know how something will happen. You need to know what you want, state it clearly to yourself, and hold it with genuine belief. The mechanism by which it arrives is not your responsibility. Your responsibility is the quality and consistency of your thought.</p>
 
-    <p>One of the most practically useful aspects of working with the Law of Attraction is this: you do not need to know how something will happen. You need to know what you want, state it clearly to yourself, and hold it with genuine belief. The mechanism by which it arrives is not your responsibility. Your responsibility is the quality and consistency of your thought.</p>
+  <p>This is the foundation upon which everything else in this guide is built. Establish this understanding clearly and the steps that follow become natural extensions of it. Resist it — continue to make the <em>how</em> your primary focus — and no technique or practice will produce lasting results. The <em>how</em> is the Law's domain. The <em>what</em> and the <em>why</em> are yours.</p>
 
-    <p>This is the foundation upon which everything else in this guide is built. Establish this understanding clearly and the steps that follow become natural extensions of it. Resist it — continue to make the <em>how</em> your primary focus — and no technique or practice will produce lasting results. The <em>how</em> is the Law's domain. The <em>what</em> and the <em>why</em> are yours.</p>
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg class="divider-line-left" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeLeft)" stroke-width="1"/>
+    </svg>
+    <div class="divider-stars">
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+    </div>
+    <svg class="divider-line-right" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeRight)" stroke-width="1"/>
+    </svg>
+  </div>
 
-    <h2>The Four-Part Guide: What Comes Next</h2>
+  <h2>The Four-Part Guide: What Comes Next</h2>
 
-    <p>Knowing that the Law is always working, whether you direct it or not, the only logical choice is to direct it. The remaining pages of this guide walk through the complete process of conscious, deliberate attraction in four sequential steps.</p>
+  <p>Knowing that the Law is always working, whether you direct it or not, the only logical choice is to direct it. The remaining pages of this guide walk through the complete process of conscious, deliberate attraction in four sequential steps.</p>
 
-    <p>These are not independent techniques to be applied in isolation or in any order you choose. They are a sequence, and the sequence matters. Each step prepares the ground for the one that follows.</p>
+  <p>These are not independent techniques to be applied in isolation or in any order you choose. They are a sequence, and the sequence matters. Each step prepares the ground for the one that follows.</p>
 
-    <h3>Step One: Request</h3>
-    <p>How to identify with clarity and honesty what you truly want — and how to state it in a way the Law can act on.</p>
-
-    <h3>Step Two: Conscious Belief</h3>
-    <p>How to examine and align your belief system with what you have requested, because a request made without genuine belief produces nothing.</p>
-
-    <h3>Step Three: Trust</h3>
-    <p>How to release your attachment to the outcome and allow the Law to work without interference from doubt or impatience.</p>
-
-    <h3>Step Four: Action</h3>
-    <p>How to recognise and respond to the opportunities your shifted frequency begins to attract, because the Law moves through the world in practical ways.</p>
-
-    <p>Read them in order. Apply them in order. Return to this introduction whenever the foundation feels uncertain.</p>
-
-  </div><!-- /.content-body -->
-
-  <!-- ============================================================
-       BLOCK A — STEP INDEX GRID
-  ============================================================ -->
+  <!-- BLOCK A: STEP INDEX GRID -->
   <nav class="step-index" aria-label="Four-step guide navigation">
-    <p class="step-index-heading">The Four-Step Guide</p>
+    <span class="step-index-label">The Four-Step Guide</span>
     <div class="step-grid">
 
       <a href="{{ site.baseurl }}/use-the-law-of-attraction-step-one-request/" class="step-card">
@@ -435,30 +601,62 @@ schema: |
     </div>
   </nav>
 
-  <!-- CENTRAL SUMMARY -->
-  <div class="central-summary">
-    <span class="summary-label">Central Summary</span>
-    <p>The Law of Attraction is always operating, whether you are directing it consciously or not. It responds to the feeling behind a thought, not the words used to describe it, which is why "I don't want this" and "I want this" are received very differently. Every thought carries a quality that attracts its equivalent. Negative thoughts compound by momentum. Positive thoughts multiply by the same mechanism, pointed in the opposite direction. The shift from unconscious to conscious use of the Law begins with a single decision: to notice what you are thinking, and to redirect it deliberately toward what you actually want.</p>
+  <!-- DIVIDER -->
+  <div class="section-divider" aria-hidden="true">
+    <svg class="divider-line-left" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeLeft)" stroke-width="1"/>
+    </svg>
+    <div class="divider-stars">
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+      <svg width="10" height="10" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <polygon points="5,0 6.18,3.82 10,5 6.18,6.18 5,10 3.82,6.18 0,5 3.82,3.82" fill="#d4af7a"/>
+      </svg>
+    </div>
+    <svg class="divider-line-right" height="1" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <line x1="0" y1="0" x2="100%" y2="0" stroke="url(#fadeRight)" stroke-width="1"/>
+    </svg>
   </div>
 
-  <!-- CENTRAL ACTION STEP -->
-  <div class="action-step">
-    <span class="action-label">Central Action Step</span>
-    <p>Spend today becoming consciously aware of your negative thoughts. Do not judge them — simply notice them. And when you catch one, replace it immediately with a positively stated version of what you actually want. Do this once and it is an exercise. Do it consistently and it becomes the beginning of a new frequency, one you have chosen rather than inherited.</p>
+  <!-- CENTRAL SUMMARY — exact .summary-box from Love page -->
+  <div class="summary-box">
+    <h2>Central Summary</h2>
+    <ul>
+      <li>The Law of Attraction is always operating, whether you are directing it consciously or not</li>
+      <li>It responds to the feeling behind a thought, not the words used to describe it — "I don't want this" and "I want this" are received very differently</li>
+      <li>Every thought carries a quality that attracts its equivalent — negative thoughts compound by momentum, positive thoughts multiply by the same mechanism</li>
+      <li>The shift from unconscious to conscious use of the Law begins with a single decision: to notice what you are thinking and redirect it deliberately</li>
+      <li>You do not need to know how something will happen — the <em>what</em> and the <em>why</em> are yours; the <em>how</em> belongs to the Law</li>
+    </ul>
+  </div>
+
+  <h2>Central Action Step</h2>
+
+  <ol class="action-steps">
+    <li>Spend today becoming consciously aware of your negative thoughts — do not judge them, simply notice them</li>
+    <li>Each time you catch a negative thought, replace it immediately with a positively stated version of what you actually want</li>
+    <li>Track how often the replacement feels natural versus forced — that gap is the measure of your current frequency</li>
+    <li>Do this once and it is an exercise. Do it consistently and it becomes the beginning of a new frequency — one you have chosen rather than inherited</li>
+  </ol>
+
+  <p class="closing-line">The Law does not play favourites.<br>It returns what you give it. Give it something worth receiving.</p>
+
+  <hr>
+
+  <!-- SOURCES / CITATION NOTE — white card -->
+  <div class="sources-note-block">
+    <p>This page is the introduction to Law of Attraction Central's four-part guide on conscious, deliberate attraction. It will next be reviewed in May 2027. If you have questions or feedback, we welcome correspondence through our <a href="{{ site.baseurl }}/contact/">contact page</a>.</p>
+    <p><strong>About Law of Attraction Central</strong><br>
+    Law of Attraction Central has been an independent resource for the serious study of manifestation philosophy, New Thought history, and consciousness research since 2013. Our content is built from primary sources, verified scholarship, and more than a decade of independent research.</p>
+    <p><a href="{{ site.baseurl }}/contact/">Contact Us</a> | <a href="{{ site.baseurl }}/about/">About Us</a> | <a href="{{ site.baseurl }}/privacy-policy/">Privacy Policy</a></p>
+    <p><strong>About the Curator</strong><br>
+    <em>Curated by Don Allen, Founder of Law of Attraction Central</em><br>
+    Don Allen has been researching and writing about manifestation philosophy, New Thought history, and consciousness studies since 2013. Law of Attraction Central grew from a personal study practice into one of the longer-running independent resources on LOA history and application online.</p>
+    <p class="curator-note">This page will next be reviewed in May 2027.</p>
   </div>
 
 </main>
-
-<!-- PAGE FOOTER -->
-<footer class="page-footer">
-  <p class="curator-note">This page is the introduction to Law of Attraction Central's four-part guide on conscious, deliberate attraction. It will next be reviewed in May 2027. If you have questions or feedback, we welcome correspondence through our <a href="{{ site.baseurl }}/contact/">contact page</a>.</p>
-
-  <p><strong>About Law of Attraction Central</strong><br>
-  Law of Attraction Central has been an independent resource for the serious study of manifestation philosophy, New Thought history, and consciousness research since 2012. Our content is built from primary sources, verified scholarship, and more than a decade of independent research.</p>
-  
-  <p><strong>About the Curator</strong><br>
-  <em>Curated by Don Allen, Founder of Law of Attraction Central</em><br>
-  Don Allen has been researching and writing about manifestation philosophy, New Thought history, and consciousness studies since 2012. Law of Attraction Central grew from a personal study practice into one of the longer-running independent resources on LOA history and application online.</p>
-
-  <p class="curator-note">This page will next be reviewed in May 2027.</p>
-</footer>
