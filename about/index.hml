@@ -1,0 +1,398 @@
+---
+layout: default
+title: "About Law of Attraction Central | Who We Are and What We Do"
+description: "Law of Attraction Central has been an independent resource for the serious study of manifestation philosophy, New Thought history, and consciousness research since 2012."
+permalink: /about/
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Law of Attraction Central",
+  "description": "Law of Attraction Central has been an independent resource for the serious study of manifestation philosophy, New Thought history, and consciousness research since 2012.",
+  "url": "https://www.lawofattractioncentral.net/about/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.lawofattractioncentral.net/about/"
+  },
+  "datePublished": "2013-01-01",
+  "dateModified": "2026-05-01",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Law of Attraction Central",
+    "url": "https://www.lawofattractioncentral.net",
+    "foundingDate": "2012",
+    "description": "An independent resource for the serious study of manifestation philosophy, New Thought history, and consciousness research.",
+    "founder": {
+      "@type": "Person",
+      "name": "Don Allen",
+      "jobTitle": "Founder and Researcher",
+      "description": "Don Allen has been researching and writing about manifestation philosophy, New Thought history, and consciousness studies since 2012.",
+      "knowsAbout": [
+        "Law of Attraction",
+        "New Thought Philosophy",
+        "Manifestation",
+        "Consciousness Research",
+        "Hermetic Philosophy",
+        "New Thought History"
+      ]
+    },
+    "sameAs": [
+      "https://www.facebook.com/lawofattractioncentral"
+    ]
+  },
+  "about": [
+    {
+      "@type": "Thing",
+      "name": "Law of Attraction",
+      "description": "The philosophical principle that the quality of one's thoughts and feelings determines the quality of one's experiences."
+    },
+    {
+      "@type": "Thing",
+      "name": "New Thought",
+      "description": "A nineteenth century philosophical movement centred on the relationship between mind and experienced reality."
+    },
+    {
+      "@type": "Thing",
+      "name": "Manifestation Philosophy",
+      "description": "The practical and philosophical study of how conscious thought and feeling shape lived experience."
+    }
+  ],
+  "author": {
+    "@type": "Person",
+    "name": "Don Allen",
+    "jobTitle": "Founder",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Law of Attraction Central",
+      "url": "https://www.lawofattractioncentral.net"
+    }
+  },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.lawofattractioncentral.net/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "About",
+        "item": "https://www.lawofattractioncentral.net/about/"
+      }
+    ]
+  }
+}
+</script>
+
+<style>
+  /* ── BASE ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: #f9f6f0;
+    color: #555;
+    line-height: 1.85;
+  }
+
+  /* ── LAYOUT ── */
+  .page-wrapper {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 60px 32px 100px;
+  }
+
+  /* ── HEADINGS ── */
+  h1, h2, h3, h4, h5, h6 {
+    color: #1a1a1a;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .page-byline {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7a5f3a;
+    margin-bottom: 2.5rem;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid #e8e0d4;
+  }
+
+  /* ── PARAGRAPHS ── */
+  p {
+    margin-bottom: 1.4rem;
+    font-size: 1.0625rem;
+  }
+
+  em { font-style: italic; }
+  strong { color: #1a1a1a; font-weight: 400; }
+
+  /* ── SECTION DIVIDER ── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0 2rem;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #d4af7a, transparent);
+  }
+
+  .section-divider span {
+    color: #d4af7a;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    letter-spacing: 0.3em;
+    line-height: 1;
+  }
+
+  /* ── SUMMARY BOX ── */
+  .summary-box {
+    background: #ffffff;
+    border: 1px solid #e8e0d4;
+    border-top: 4px solid #d4af7a;
+    border-radius: 4px;
+    padding: 2rem 2rem 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  }
+
+  .summary-box h2 {
+    border-bottom: none;
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .summary-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .summary-box ul li {
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-bottom: 1px solid #f0ebe3;
+    position: relative;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .summary-box ul li:last-child { border-bottom: none; }
+
+  .summary-box ul li::before {
+    content: '–';
+    color: #d4af7a;
+    position: absolute;
+    left: 0;
+  }
+
+  /* ── STANDARDS BOX ── */
+  .standards-box {
+    background: #ffffff;
+    border: 1px solid #e8e0d4;
+    border-top: 4px solid #d4af7a;
+    border-radius: 4px;
+    padding: 2rem 2rem 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  }
+
+  .standards-box h2 {
+    border-bottom: none;
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .standards-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .standards-box ul li {
+    padding: 0.5rem 0 0.5rem 1.25rem;
+    border-bottom: 1px solid #f0ebe3;
+    position: relative;
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .standards-box ul li:last-child { border-bottom: none; }
+
+  .standards-box ul li::before {
+    content: '–';
+    color: #d4af7a;
+    position: absolute;
+    left: 0;
+  }
+
+  /* ── FOUNDER BOX ── */
+  .founder-box {
+    background: #ffffff;
+    border: 1px solid #e8e0d4;
+    border-top: 4px solid #d4af7a;
+    border-radius: 4px;
+    padding: 2rem 2rem 1.5rem;
+    margin: 2.5rem 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.05);
+  }
+
+  .founder-box h2 {
+    border-bottom: none;
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .founder-box p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0;
+  }
+
+  /* ── CLOSING LINE ── */
+  .closing-line {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    font-style: italic;
+    text-align: center;
+    margin: 2.5rem 0;
+    line-height: 1.6;
+  }
+
+  /* ── HR ── */
+  hr {
+    border: none;
+    border-top: 1px solid #e8e0d4;
+    margin: 3rem 0;
+  }
+
+  /* ── SOURCES NOTE ── */
+  .sources-note {
+    font-size: 0.875rem;
+    color: #6a6a6a;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .page-wrapper { padding: 40px 20px 80px; }
+  }
+</style>
+
+<main class="page-wrapper" id="main-content">
+
+  <h1>About Law of Attraction Central</h1>
+  <p class="page-byline">Who We Are, What We Do, and Why It Matters</p>
+
+  <h2>The Site</h2>
+
+  <p>Law of Attraction Central has been an independent resource for the serious study of manifestation philosophy, New Thought history, and consciousness research since 2012. What began as a personal study practice has grown into one of the longer-running independent sites dedicated to this subject — built without institutional backing, without a corporate content team, and without the kind of keyword-chasing that fills most corners of this niche with content that says very little.</p>
+
+  <p>The site exists for one reason: because the history and philosophy behind the Law of Attraction deserve to be treated seriously. The ideas here are old. They surface in Hermetic philosophy, in Buddhist and Hindu tradition, in the work of nineteenth century New Thought pioneers, and in the writing of twentieth century teachers who spent their lives testing these principles against lived experience. That lineage deserves accurate, careful documentation — not another listicle, not another repackaging of <em>The Secret</em>, and not content produced at scale by people who have never read the primary texts.</p>
+
+  <p>That is the standard we hold ourselves to. It is not always the easiest standard, but it is the only one that makes this site worth your time.</p>
+
+  <div class="section-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+
+  <h2>The Person Behind It</h2>
+
+  <p>Law of Attraction Central is the work of Don Allen — researcher, writer, and founder of this site.</p>
+
+  <p>Don has been studying manifestation philosophy, New Thought history, and consciousness research since 2012. That study began privately, as most serious engagement with these ideas does, and over time it became the foundation for everything published here. The site's historical overviews, practical guides, and curated collections of primary source material all grow from more than a decade of direct engagement with the texts and traditions they cover.</p>
+
+  <p>Don does not hold an academic title in this field and has never claimed one. What he brings to this work is something the E-E-A-T framework Google uses to evaluate content quality actually values more in many cases: genuine first-hand familiarity with the subject matter, accumulated over a long period, applied with care and honesty. Every piece of content on this site reflects that standard.</p>
+
+  <p>Law of Attraction Central's community can be found on Facebook, where Don curates updates, discussions, and resources connected to the site's ongoing work.</p>
+
+  <div class="section-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+
+  <h2>What You Will Find Here</h2>
+
+  <div class="summary-box">
+    <h2>Three Areas of Publishing</h2>
+    <ul>
+      <li><strong>Historical and philosophical research</strong> — long-form overviews of the LOA's origins and development, from its earliest recorded expressions in Hermetic and Eastern philosophy through the New Thought movement of the nineteenth century and into the modern era. These pages are built from primary sources and maintained annually as scholarship evolves</li>
+      <li><strong>Practical application guides</strong> — step-by-step guidance on applying the Law of Attraction deliberately and consistently, grounded in the foundational texts rather than in contemporary self-help trends. The four-part How to Use the Law of Attraction guide is the current flagship of this section</li>
+      <li><strong>Curated resources</strong> — carefully selected quotes, author profiles, and reading recommendations drawn from the primary figures in this tradition. Every quote on this site has been verified against its original source. Any attribution that cannot be confirmed has been removed</li>
+    </ul>
+  </div>
+
+  <p>A Classroom section is in development. It will feature books and resources that meet the site's editorial standards — texts we have read, studied, and believe are worth your time. It will never be a store in the conventional sense. It will be a curated reading list with context.</p>
+
+  <div class="section-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+
+  <h2>Our Editorial Standards</h2>
+
+  <p>Every piece of content published on Law of Attraction Central is held to a specific set of editorial standards developed over the course of the site's history and refined continuously as Google's quality guidelines have evolved.</p>
+
+  <div class="standards-box">
+    <h2>What Our Standards Mean in Practice</h2>
+    <ul>
+      <li>Every page is written from genuine first-hand familiarity with the subject — no content is produced to chase trending topics or fill keyword gaps</li>
+      <li>No author credentials are fabricated</li>
+      <li>No quotes are published without verified attribution</li>
+      <li>No financial or investment claims are made — where content touches on money and abundance, it does so as a philosophical and psychological framework, not as financial guidance</li>
+      <li>We are transparent about who we are: an independent site run by one person with a deep, long-standing interest in this subject, not affiliated with any university, institute, or commercial LOA brand</li>
+    </ul>
+  </div>
+
+  <div class="section-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+
+  <h2>A Note on Trust</h2>
+
+  <p>We are aware that the Law of Attraction occupies a complicated space in the broader culture. For some readers it is a serious philosophical and practical framework with roots in some of the oldest wisdom traditions on earth. For others it is associated with the more sensational end of the self-help industry — with overclaiming, magical thinking, and the kind of content that promises transformation without substance.</p>
+
+  <p>Law of Attraction Central has always been built in deliberate contrast to that second category. We do not promise that these ideas will make you rich, guarantee your happiness, or resolve your circumstances without effort. We document where the ideas come from, what the serious teachers in this tradition actually said, and how the principles can be applied with honesty and discipline. What you do with that is entirely your own.</p>
+
+  <p>If you have been looking for a resource that takes this subject seriously without selling you something, you have found it.</p>
+
+  <div class="section-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+
+  <h2>Contact and Correspondence</h2>
+
+  <p>We welcome questions, corrections, and correspondence from readers who engage seriously with this material. If you believe a quote has been misattributed, a historical claim requires revision, or a significant figure in this tradition has been overlooked, we want to hear from you. You can reach us through the contact page linked in the site footer.</p>
+
+  <p class="closing-line">Law of Attraction Central — Ancient wisdom. Modern clarity. No shortcuts.</p>
+
+  <div class="section-divider" aria-hidden="true"><span>✦ ✦ ✦</span></div>
+
+  <div class="founder-box">
+    <h2>About the Founder</h2>
+    <p>Don Allen has been researching and writing about manifestation philosophy, New Thought history, and consciousness studies since 2012. Law of Attraction Central grew from a personal study practice into one of the longer-running independent resources on LOA history and application online.</p>
+  </div>
+
+  <hr>
+
+  <p class="sources-note">Law of Attraction Central has been published continuously since 2012. All content on this site is written and curated by Don Allen. This page will next be reviewed in May 2027.</p>
+
+</main>
