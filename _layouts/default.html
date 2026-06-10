@@ -8,6 +8,10 @@
   {% if page.permalink %}
   <link rel="canonical" href="https://www.lawofattractioncentral.net{{ page.permalink }}" />
   {% endif %}
+
+  <!-- Google Search Console Verification -->
+  <meta name="google-site-verification" content="mzKSZ65ZwaI1YvLfQKjdr1yiwCFYax6hHhQFbp3aPfc" />
+
   <!-- FONTS: preconnect + non-blocking load with font-display swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +25,7 @@
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
   </noscript>
+
   <style>
     /* GLOBAL BASE */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -115,6 +120,16 @@
       height: auto;
     }
   </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Q423RGSLCC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-Q423RGSLCC');
+  </script>
+
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
