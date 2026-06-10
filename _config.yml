@@ -1,3 +1,6 @@
 title: Law of Attraction Central
 url: "https://lawofattractioncentral.net"
 baseurl: ""
+
+plugins:
+  - jekyll-sitemap
