@@ -12,25 +12,28 @@
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="mzKSZ65ZwaI1YvLfQKjdr1yiwCFYax6hHhQFbp3aPfc" />
 
-  <!-- FONTS: preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <!--
-    PERF FIX: Preload the Cormorant Garamond woff2 (regular 400) so the
-    browser fetches it at highest priority before layout — eliminates the
-    83% render-delay that was causing LCP to sit at 3,740ms.
-    This preload covers the weight used by h1/h2/h3 and blockquotes globally.
+    PERF: Cormorant Garamond loads BLOCKING — it is used by the H1 which is
+    the LCP element. Deferring it caused 3,250ms render delay because the
+    browser refused to paint the H1 until the font arrived. Loading it
+    synchronously removes that delay at the cost of one blocking request,
+    which is the correct trade-off when the font IS the LCP element.
   -->
-  <link rel="preload" as="font" type="font/woff2"
-        href="https://fonts.gstatic.com/s/cormorantgaramond/v22/co3YmX5slCNuHLi8bLeY9MK7whWMhyjQEl5fqg.woff2"
-        crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
 
-  <!-- Non-blocking Google Fonts load -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap"
+  <!--
+    PERF: Lato loads NON-BLOCKING — used for body text only, never the LCP
+    element. Deferring it is safe; the browser falls back to sans-serif
+    briefly then swaps in Lato with no layout shift (display=swap).
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
   </noscript>
 
   <style>
@@ -128,12 +131,7 @@
     }
   </style>
 
-  <!--
-    PERF FIX: Changed from async to defer.
-    async executes immediately on load and can still block rendering.
-    defer waits until after the page has fully parsed and painted,
-    so it no longer contributes to FCP or LCP delay.
-  -->
+  <!-- PERF: defer keeps GTM off the critical path — fires after paint -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-Q423RGSLCC"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
