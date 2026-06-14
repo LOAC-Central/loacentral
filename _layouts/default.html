@@ -12,31 +12,35 @@
   <!-- Google Search Console Verification -->
   <meta name="google-site-verification" content="mzKSZ65ZwaI1YvLfQKjdr1yiwCFYax6hHhQFbp3aPfc" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <!--
-    PERF: Cormorant Garamond loads BLOCKING — it is used by the H1 which is
-    the LCP element. Deferring it caused 3,250ms render delay because the
-    browser refused to paint the H1 until the font arrived. Loading it
-    synchronously removes that delay at the cost of one blocking request,
-    which is the correct trade-off when the font IS the LCP element.
+    PERF: Self-hosted Cormorant Garamond — eliminates external DNS + stylesheet
+    round trip (was 800ms blocking). Files load from same origin as HTML
+    with no extra connection setup.
   -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap"
-        rel="stylesheet">
-
-  <!--
-    PERF: Lato loads NON-BLOCKING — used for body text only, never the LCP
-    element. Deferring it is safe; the browser falls back to sans-serif
-    briefly then swaps in Lato with no layout shift (display=swap).
-  -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
-        rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
-  </noscript>
-
   <style>
+    /* CORMORANT GARAMOND — self-hosted, font-display: swap */
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/assets/fonts/cormorant-garamond-400.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: normal;
+      font-weight: 600;
+      font-display: swap;
+      src: url('/assets/fonts/cormorant-garamond-600.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Cormorant Garamond';
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+      src: url('/assets/fonts/cormorant-garamond-400-italic.woff2') format('woff2');
+    }
+
     /* GLOBAL BASE */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -130,6 +134,17 @@
       height: auto;
     }
   </style>
+
+  <!--
+    PERF: Lato loads NON-BLOCKING — used for body text only, never the LCP
+    element. Deferring it is safe; the browser falls back to sans-serif
+    briefly then swaps in Lato with no layout shift (display=swap).
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
+        rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  </noscript>
 
   <!-- PERF: defer keeps GTM off the critical path — fires after paint -->
   <script defer src="https://www.googletagmanager.com/gtag/js?id=G-Q423RGSLCC"></script>
