@@ -144,13 +144,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
   </noscript>
 
-  <!-- PERF: defer keeps GTM off the critical path — fires after paint -->
-  <script defer src="https://www.googletagmanager.com/gtag/js?id=G-Q423RGSLCC"></script>
+  <!-- PERF: Preconnect to Google Fonts CDN — eliminates DNS round-trip -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+  <!-- PERF: Lazy-loaded GA4 — fires 2s after page is fully interactive -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-Q423RGSLCC');
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-Q423RGSLCC';
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-Q423RGSLCC');
+      }, 2000);
+    });
   </script>
 
 </head>
