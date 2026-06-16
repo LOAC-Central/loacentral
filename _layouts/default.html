@@ -11,9 +11,23 @@
   <meta name="google-site-verification" content="mzKSZ65ZwaI1YvLfQKjdr1yiwCFYax6hHhQFbp3aPfc" />
 
   <!--
+    PERF: Preload self-hosted Cormorant Garamond — tells the browser to fetch
+    the font files immediately during HTML parse, in parallel with everything
+    else. Without these hints the browser only discovers the fonts after
+    parsing the @font-face rules in the <style> block below, causing the
+    ~1,800ms render delay that was inflating LCP on every page.
+    The 400 regular and 400 italic weights are preloaded because p.lead
+    (the typical LCP element) is italic, and h1/h2 use 400 regular.
+    The 600 weight is not preloaded — it appears below the fold.
+  -->
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-400.woff2"
+        as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond-400-italic.woff2"
+        as="font" type="font/woff2" crossorigin>
+
+  <!--
     PERF: Self-hosted Cormorant Garamond — eliminates external DNS + stylesheet
-    round trip (was 800ms blocking). Files load from same origin as HTML
-    with no extra connection setup.
+    round trip. Files load from same origin as HTML with no extra connection.
   -->
   <style>
     /* CORMORANT GARAMOND — self-hosted, font-display: swap */
@@ -138,15 +152,13 @@
     element. Deferring it is safe; the browser falls back to sans-serif
     briefly then swaps in Lato with no layout shift (display=swap).
   -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
         rel="stylesheet" media="print" onload="this.media='all'">
   <noscript>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
   </noscript>
-
-  <!-- PERF: Preconnect to Google Fonts CDN — eliminates DNS round-trip -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- PERF: Lazy-loaded GA4 — fires 2s after page is fully interactive -->
   <script>
