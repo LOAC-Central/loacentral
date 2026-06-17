@@ -67,7 +67,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0px 2px 3px rgba(0,0,0,0.85));
+    /*
+      PERF FIX: filter:drop-shadow on a background-clip:text element forces
+      a compositing layer that blocks the paint tree — including <main> below.
+      Removed. The gradient's dark stop at 100% already provides depth.
+    */
   }
 
   /* ── Central divider row ── */
@@ -283,7 +287,10 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: clamp(12px, 3vw, 32px);
-    filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.6));
+    /*
+      PERF FIX: filter on tagline also removed — same compositing
+      layer issue as brand-main-title. Color contrast is sufficient without it.
+    */
   }
 
   /* ─────────────────────────────────────────
@@ -390,14 +397,12 @@
     margin: 0;
   }
 
-  /* FIX 1: explicit gold + visited state beats browser UA defaults */
   nav ul li a,
   nav ul li a:visited {
     display: block;
     color: #d4af7a;
     text-decoration: none;
     font-family: 'Lato', sans-serif;
-    /* FIX 2: font-weight 400 matches the loaded Lato subset */
     font-size: 0.75rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
@@ -427,7 +432,6 @@
       min-height: 50px;
     }
 
-    /* FIX 3: Cormorant weight 400 matches font load — was referencing 500 before */
     .nav-brand {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 400;
